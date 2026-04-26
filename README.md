@@ -4,7 +4,7 @@
 
 Convert any X (Twitter) account's tweet history into a portable AI agent skill file.
 
-Drop the output `skill.md` into Claude Code, Hermes, OpenClaw, ElizaOS, or any agent — it reads the file and can write in that person's voice.
+Drop the output `skill.md` into Hermes, Claude Code, OpenClaw, ElizaOS, or any agent — it reads the file and can write in that person's voice.
 
 ---
 
@@ -43,7 +43,7 @@ Your agent will ask for your X Bearer Token (free at [developer.x.com](https://d
 
 ```bash
 # Set your credentials
-export X_BEARER_TOKEN="..."          # free at developer.x.com → Keys & Tokens
+export X_BEARER_TOKEN="..."          # obtain from https://console.x.com/ → Apps
 export OPENROUTER_API_KEY="..."      # or ANTHROPIC_API_KEY / OPENAI_API_KEY
 
 # Generate a skill file
@@ -85,16 +85,20 @@ python3 tweetskill.py @elonmusk --count 500 --estimate-cost
 
 ## Cost
 
-| Tweets | X API cost | Notes |
-|--------|-----------|-------|
-| 50     | $0.05     | Fast baseline |
-| 100    | $0.10     | Recommended default |
-| 200    | $0.20     | Thorough |
-| 500    | $0.50     | Deep analysis |
-| Refresh | ~$0.01–0.05 | Only new tweets since last run |
-| LLM distillation | ~$0.01 | Gemini Flash (default) |
+Estimates below use the [X API owned reads pricing](https://docs.x.com/x-api/getting-started/pricing#owned-reads) — reading tweets from an account you own or control. Pricing for reading other public accounts differs.
 
-X API v2 bearer token pricing as of April 2026: $0.001/tweet (owned reads).  
+| Tweets | X API cost (owned reads) | LLM cost | Total est. |
+|--------|--------------------------|----------|------------|
+| 50     | $0.05                    | ~$0.01   | ~$0.06     |
+| 100    | $0.10                    | ~$0.01   | ~$0.11     |
+| 200    | $0.20                    | ~$0.01   | ~$0.21     |
+| 500    | $0.50                    | ~$0.01   | ~$0.51     |
+| Refresh (incremental) | $0.01–0.05 | ~$0.01 | Much cheaper |
+
+LLM cost uses Gemini Flash (default via OpenRouter) — swap to any model with `--llm`.
+
+> Prices change. Always check the [official X API pricing page](https://docs.x.com/x-api/getting-started/pricing) before estimating costs for your use case.
+
 Get a free bearer token at [developer.x.com](https://developer.x.com).
 
 ## Output
