@@ -2,9 +2,32 @@
 
 Convert any X (Twitter) account's tweet history into a portable AI agent skill file.
 
-Drop the generated `skill.md` into Claude Code, Hermes, OpenClaw, ElizaOS, or any agent — it reads it as context and can write in that person's voice.
+Drop the output `skill.md` into Claude Code, Hermes, OpenClaw, ElizaOS, or any agent — it reads the file and can write in that person's voice.
 
-## Quick start
+---
+
+## Option A — No-code: use the SKILL.md directly in your AI agent
+
+Drop [`skills/x-persona-extractor/SKILL.md`](skills/x-persona-extractor/SKILL.md) into your agent's skills folder. Your agent will handle the fetch, analysis, and output — no scripts, no install.
+
+```
+# Claude Code
+Read skills/x-persona-extractor/SKILL.md into your project, then:
+  "analyze @elonmusk"
+
+# Hermes
+cp skills/x-persona-extractor/SKILL.md ~/.hermes/skills/x-persona-extractor/
+Then ask Hermes: "tweetskill @elonmusk"
+
+# OpenClaw
+Add to your skills/ directory — OpenClaw picks it up automatically
+```
+
+Your agent will ask for your X Bearer Token (free at [developer.x.com](https://developer.x.com)), fetch the tweets using its own HTTP tools, and write `elonmusk-skill.md`.
+
+---
+
+## Option B — Python script: run it yourself
 
 ```bash
 # Set your credentials
@@ -16,7 +39,7 @@ python3 tweetskill.py @elonmusk
 # → saves elonmusk-skill.md
 ```
 
-No install required. Just Python 3.10+ and two pip packages:
+No install required beyond Python 3.10+ and two packages:
 
 ```bash
 pip install tweepy openai
