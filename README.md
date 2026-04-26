@@ -135,10 +135,6 @@ generator: "tweetskill/0.1.0"
 3. **Distill** — LLM extracts patterns from top-performing vs low-performing tweets
 4. **Export** — writes a skill file grounded in actual engagement data, not guesswork
 
-## Telegram bot
-
-Want a no-code version? [@TweetSkillBot](https://t.me/TweetSkillBot) — paste your handle and X token, get a skill file back in Telegram. Free, built by [@DbgKinggg](https://x.com/DbgKinggg).
-
 ## License
 
 MIT
