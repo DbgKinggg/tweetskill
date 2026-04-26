@@ -87,15 +87,15 @@ python3 tweetskill.py @elonmusk --count 500 --estimate-cost
 
 Estimates below use the [X API owned reads pricing](https://docs.x.com/x-api/getting-started/pricing#owned-reads) — reading tweets from an account you own or control. Pricing for reading other public accounts differs.
 
-| Tweets | X API cost (owned reads) | LLM cost | Total est. |
-|--------|--------------------------|----------|------------|
-| 50     | $0.05                    | ~$0.01   | ~$0.06     |
-| 100    | $0.10                    | ~$0.01   | ~$0.11     |
-| 200    | $0.20                    | ~$0.01   | ~$0.21     |
-| 500    | $0.50                    | ~$0.01   | ~$0.51     |
-| Refresh (incremental) | $0.01–0.05 | ~$0.01 | Much cheaper |
+| Tweets | X API cost (owned reads) | Notes |
+|--------|--------------------------|-------|
+| 50     | $0.05                    | Fast baseline |
+| 100    | $0.10                    | Recommended default |
+| 200    | $0.20                    | Thorough |
+| 500    | $0.50                    | Deep analysis |
+| Refresh (incremental) | $0.01–0.05 | Only new tweets since last run |
 
-LLM cost uses Gemini Flash (default via OpenRouter) — swap to any model with `--llm`.
+LLM distillation adds ~$0.01 (Gemini Flash default via OpenRouter) — swap to any model with `--llm`.
 
 > Prices change. Always check the [official X API pricing page](https://docs.x.com/x-api/getting-started/pricing) before estimating costs for your use case.
 
