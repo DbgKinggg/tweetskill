@@ -8,15 +8,15 @@ Drop the output `skill.md` into Claude Code, Hermes, OpenClaw, ElizaOS, or any a
 
 ## Option A — No-code: use the SKILL.md directly in your AI agent
 
-Drop [`skills/x-persona-extractor/SKILL.md`](skills/x-persona-extractor/SKILL.md) into your agent's skills folder. Your agent will handle the fetch, analysis, and output — no scripts, no install.
+Drop [`SKILL.md`](SKILL.md) into your agent's skills folder. Your agent will handle the fetch, analysis, and output — no scripts, no install.
 
 ```
 # Claude Code
-Read skills/x-persona-extractor/SKILL.md into your project, then:
+Read SKILL.md into your project, then:
   "analyze @elonmusk"
 
 # Hermes
-cp skills/x-persona-extractor/SKILL.md ~/.hermes/skills/x-persona-extractor/
+cp SKILL.md ~/.hermes/skills/tweetskill/
 Then ask Hermes: "tweetskill @elonmusk"
 
 # OpenClaw
