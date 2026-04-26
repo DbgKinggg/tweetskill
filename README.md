@@ -6,21 +6,31 @@ Drop the output `skill.md` into Claude Code, Hermes, OpenClaw, ElizaOS, or any a
 
 ---
 
-## Option A — No-code: use the SKILL.md directly in your AI agent
+## Option A — No-code: install the skill into your AI agent
 
-Drop [`SKILL.md`](SKILL.md) into your agent's skills folder. Your agent will handle the fetch, analysis, and output — no scripts, no install.
+Install via the community skills CLI:
 
+```bash
+npx skills add dbgking/tweetskill
 ```
+
+Or install manually for your agent:
+
+```bash
 # Claude Code
-Read SKILL.md into your project, then:
-  "analyze @elonmusk"
+npx skills add dbgking/tweetskill
 
 # Hermes
-cp SKILL.md ~/.hermes/skills/tweetskill/
-Then ask Hermes: "tweetskill @elonmusk"
+cp SKILL.md ~/.hermes/skills/tweetskill/SKILL.md
 
 # OpenClaw
-Add to your skills/ directory — OpenClaw picks it up automatically
+npx skills add dbgking/tweetskill
+```
+
+Then just tell your agent:
+
+```
+analyze @elonmusk
 ```
 
 Your agent will ask for your X Bearer Token (free at [developer.x.com](https://developer.x.com)), fetch the tweets using its own HTTP tools, and write `elonmusk-skill.md`.

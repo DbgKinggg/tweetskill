@@ -1,5 +1,5 @@
 ---
-name: X Persona Extractor
+name: tweetskill
 description: Analyze any X (Twitter) account's tweet history and generate a portable persona skill file that any AI agent can use.
 version: 0.1.0
 author: "@DbgKinggg"
