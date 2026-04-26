@@ -99,7 +99,7 @@ LLM distillation adds ~$0.01 (Gemini Flash default via OpenRouter) — swap to a
 
 > Prices change. Always check the [official X API pricing page](https://docs.x.com/x-api/getting-started/pricing) before estimating costs for your use case.
 
-Get a free bearer token at [developer.x.com](https://developer.x.com).
+Get your bearer token at [developer.x.com](https://developer.x.com) — X API is pay-as-you-go.
 
 ## Output
 

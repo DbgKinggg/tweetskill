@@ -89,7 +89,7 @@ npx skills add dbgking/tweetskill
 tweetskill @naval
 ```
 
-agent 会问你要 X Bearer Token（在 [console.x.com](https://console.x.com/) 获得），然后自己去拉推文、分析、写 skill 文件。
+agent 会问你要 X Bearer Token（在 [developer.x.com](https://developer.x.com) 申请），然后自己去拉推文、分析、写 skill 文件。
 
 ---
 
@@ -185,7 +185,7 @@ LLM 分析另计约 $0.01（默认 Gemini Flash，通过 OpenRouter），可用 
 
 > X API 定价随时可能调整，用之前建议看[官方定价页面](https://docs.x.com/x-api/getting-started/pricing)确认最新价格。
 
-X Bearer Token 在 [developer.x.com](https://developer.x.com) 免费申请，费用记在你自己的 X 账号里，我们不经手你的 token 或付款。
+X Bearer Token 在 [developer.x.com](https://developer.x.com) 申请，X API 现已按用量计费（PAYG）。费用记在你自己的账号里，我们不经手你的 token 或付款。
 
 ---
 
