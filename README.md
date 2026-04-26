@@ -1,87 +1,163 @@
+<div align="center">
+
 # tweetskill
 
-**其他语言 / Other Languages:** [中文](README_CN.md)
+> *"You've posted 2,000 tweets. The AI still doesn't know who you are."*
 
-Convert any X (Twitter) account's tweet history into a portable AI agent skill file.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
+[![skills.sh](https://img.shields.io/badge/skills.sh-Compatible-green)](https://skills.sh)
 
-Drop the output `skill.md` into Hermes, Claude Code, OpenClaw, ElizaOS, or any agent — it reads the file and can write in that person's voice.
+**Distill any X account's tweet history into a skill file any AI agent can use.**
+
+[Example](#example) · [Install](#install) · [Usage](#usage) · [How it works](#how-it-works) · [Cost](#cost)
+
+**其他语言：** [中文](README_CN.md)
+
+</div>
 
 ---
 
-## Option A — No-code: install the skill into your AI agent
+## Why
 
-Install via the community skills CLI:
+AI writes tweets for you. They read like AI.
+
+Not because the model is bad — it just doesn't know your voice. How you phrase things. What content lands. What you'd never say.
+
+You've spent years posting. That data is sitting on X's servers. Nobody's turned it into something an AI can actually use.
+
+That's what tweetskill does.
+
+Grab any account's tweet history → score by real engagement → distill with an LLM → output a skill file. Drop it into any agent and it can write in that person's voice.
+
+Not roleplay. A distillation of how someone actually operates on the internet.
+
+---
+
+## Example
+
+After analyzing 200 tweets from `@DbgKinggg`, the generated skill file looks like this:
+
+```markdown
+# Identity
+Hardcore dev degen, living at the intersection of Web3 and AI tooling.
+Audience: fellow builders — people who code, operate onchain, and have no immunity to new tools.
+
+# Communication Style
+Code-switches between English and Chinese (~55% / 45%), moderate emoji,
+leads with the conclusion, no preamble, minimal explanation.
+First instinct when finding a tool or hitting a wall: tweet about it.
+
+# Signature Patterns
+- Opens with a take: "I love [A], way better than [B]"
+- Real war stories > pure reviews — "$10 down the drain" beats "good value"
+- AI tool comparisons get 3× the engagement of regular posts
+- Counterintuitive insight + one-line summary, never long-form
+
+# Expression DNA
+- "I love [X], better than [Y]"
+- "holy shit, [tool] just cost me $10"
+- "ngmi arc: [counter-example]"
+- "[number]. that's it."
+- "onchain [event]. degens never sleep."
+
+# Anti-Patterns
+- Sharing news without a take
+- Explanations longer than 3 paragraphs
+- "Balanced analysis" with no actual position
+```
+
+Drop this into Claude Code, Hermes, or OpenClaw and ask it to "write a tweet about Hyperliquid in DbgKing's voice" — it knows exactly what to do.
+
+---
+
+## Install
 
 ```bash
 npx skills add dbgking/tweetskill
 ```
 
-Or install manually for your agent:
-
-```bash
-# Claude Code
-npx skills add dbgking/tweetskill
-
-# Hermes
-cp SKILL.md ~/.hermes/skills/tweetskill/SKILL.md
-
-# OpenClaw
-npx skills add dbgking/tweetskill
-```
-
-Then just tell your agent:
+Then in your AI agent:
 
 ```
 analyze @elonmusk
 ```
 
-Your agent will ask for your X Bearer Token (free at [developer.x.com](https://developer.x.com)), fetch the tweets using its own HTTP tools, and write `elonmusk-skill.md`.
+The agent will ask for your X Bearer Token, fetch the tweets using its own HTTP tools, and write `elonmusk-skill.md`.
 
 ---
 
-## Option B — Python script: run it yourself
+## Usage
 
-```bash
-# Set your credentials
-export X_BEARER_TOKEN="..."          # obtain from https://console.x.com/ → Apps
-export OPENROUTER_API_KEY="..."      # or ANTHROPIC_API_KEY / OPENAI_API_KEY
+### Option A — Skill file (easiest)
 
-# Generate a skill file
-python3 tweetskill.py @elonmusk
-# → saves elonmusk-skill.md
+Install the skill, say one sentence, let the agent handle the rest.
+
+Best for: anyone already using Claude Code, Hermes, or OpenClaw. No extra setup — the agent calls the X API directly.
+
+```
+analyze @naval
 ```
 
-No install required beyond Python 3.10+ and two packages:
+### Option B — Python script (run it yourself)
+
+```bash
+export X_BEARER_TOKEN="..."        # developer.x.com
+export OPENROUTER_API_KEY="..."    # or ANTHROPIC_API_KEY / OPENAI_API_KEY
+
+python3 tweetskill.py @elonmusk --count 200
+# → elonmusk-skill.md
+```
+
+Requires Python 3.10+ and two packages:
 
 ```bash
 pip install tweepy openai
 ```
 
-## Usage
-
 ```bash
-# Control how many tweets to analyze
-python3 tweetskill.py @elonmusk --count 200
+# Output formats
+python3 tweetskill.py @elonmusk --format skill    # skill.md (default)
+python3 tweetskill.py @elonmusk --format eliza    # ElizaOS character.json
+python3 tweetskill.py @elonmusk --format json     # raw structured JSON
 
-# Different output formats
-python3 tweetskill.py @elonmusk --format skill     # skill.md (default)
-python3 tweetskill.py @elonmusk --format eliza     # ElizaOS character.json
-python3 tweetskill.py @elonmusk --format json      # raw structured JSON
-
-# Refresh an existing skill (only fetches new tweets — much cheaper)
+# Refresh (only fetches new tweets — much cheaper)
 python3 tweetskill.py --refresh elonmusk-skill.md
 
-# Re-analyze from a cached file (no X API cost)
-python3 tweetskill.py @elonmusk --save-tweets tweets.json   # cache on first run
-python3 tweetskill.py --from-json tweets.json               # re-analyze free
+# Re-analyze from cached tweets (no X API cost)
+python3 tweetskill.py @elonmusk --save-tweets tweets.json
+python3 tweetskill.py --from-json tweets.json
 
-# Use a different LLM
+# Swap the LLM
 python3 tweetskill.py @elonmusk --llm anthropic/claude-haiku-4-5
 python3 tweetskill.py @elonmusk --llm openai/gpt-4o-mini
 
-# Check cost before fetching
+# Estimate cost before running
 python3 tweetskill.py @elonmusk --count 500 --estimate-cost
 ```
+
+---
+
+## How it works
+
+Four steps, no magic:
+
+**1. Fetch** — pulls original tweets via X API v2 (retweets excluded — that's not their voice)
+
+**2. Score** — engagement rate per tweet:
+```
+score = (likes + retweets×3 + replies×2) / impressions^0.3
+```
+Top 20% = signal. Bottom 20% = anti-patterns.
+
+**3. Distill** — feeds high and low performers to the LLM together, extracting:
+- what topics and opening styles drive engagement
+- the actual voice and language style
+- what consistently doesn't work for this account
+
+**4. Export** — writes a markdown skill file grounded in real data, not guesswork.
+
+---
 
 ## Cost
 
@@ -101,44 +177,45 @@ LLM distillation adds ~$0.01 (Gemini Flash default via OpenRouter) — swap to a
 
 Get your bearer token at [developer.x.com](https://developer.x.com) — X API is pay-as-you-go.
 
-## Output
-
-The generated `skill.md` is plain markdown with YAML frontmatter:
-
-```markdown
----
-name: "@elonmusk Persona"
-description: "..."
-x_handle: "@elonmusk"
-tweets_analyzed: 200
-period_start: "2025-10-01"
-period_end: "2026-04-24"
-newest_tweet_id: "1234567890"
-generated_at: "2026-04-24T09:00:00Z"
-generator: "tweetskill/0.1.0"
 ---
 
-# Identity
-# Communication Style
-# Signature Patterns
-# Expression DNA
-# Anti-Patterns
+## Using the output
+
+```bash
+# Claude Code — Read the file, then ask it to write
+# "write a tweet about X in @naval's voice"
+
+# Hermes
+cp naval-skill.md ~/.hermes/skills/naval/SKILL.md
+
+# OpenClaw
+# drop into your skills/ directory
+
+# ElizaOS
+python3 tweetskill.py @naval --format eliza
+# → character.json
+
+# Any agent
+# paste the file contents into system prompt context
 ```
 
-**Using the skill:**
-- **Claude Code**: `Read` the file, or add it to your project context
-- **Hermes**: drop into `~/.hermes/skills/`
-- **OpenClaw**: add to your `skills/` directory
-- **ElizaOS**: use `--format eliza` for `character.json`
-- **Any agent**: paste the content into system prompt context
+---
 
-## How it works
+## About
 
-1. **Fetch** — pulls recent original tweets via X API v2 (retweets excluded)
-2. **Analyze** — scores engagement: `(likes + retweets×3 + replies×2) / impressions^0.3`
-3. **Distill** — LLM extracts patterns from top-performing vs low-performing tweets
-4. **Export** — writes a skill file grounded in actual engagement data, not guesswork
+Built by [@DbgKinggg](https://x.com/DbgKinggg). Hardcore dev, degen, likes shipping tools and open-sourcing them.
 
-## License
+If it's useful, follow on X — occasional build logs and tool breakdowns.
 
-MIT
+---
+
+<div align="center">
+
+Your tweet data is yours.<br>
+Make AI actually understand it.
+
+<br>
+
+MIT License
+
+</div>
