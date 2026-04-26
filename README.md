@@ -1,5 +1,7 @@
 # tweetskill
 
+**其他语言 / Other Languages:** [中文](README_CN.md)
+
 Convert any X (Twitter) account's tweet history into a portable AI agent skill file.
 
 Drop the output `skill.md` into Claude Code, Hermes, OpenClaw, ElizaOS, or any agent — it reads the file and can write in that person's voice.
