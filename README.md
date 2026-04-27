@@ -178,7 +178,7 @@ LLM distillation adds ~$0.01 (Gemini Flash default via OpenRouter) — swap to a
 
 > Prices change and vary by plan. Always check the [official X API pricing page](https://docs.x.com/x-api/getting-started/pricing) for current rates before estimating costs.
 
-Get your bearer token at [developer.x.com](https://developer.x.com). X API is pay-as-you-go — you'll need to top up your developer account balance before making any API calls or requests will fail. See the [X API introduction](https://docs.x.com/x-api/introduction) for details.
+Get your bearer token at [developer.x.com](https://developer.x.com). X API is pay per use — you'll need to top up your developer account balance before making any API calls or requests will fail. See the [X API introduction](https://docs.x.com/x-api/introduction) for details.
 
 ---
 
