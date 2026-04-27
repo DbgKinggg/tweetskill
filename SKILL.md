@@ -33,7 +33,8 @@ Ask the user for:
 
 1. **X handle** — the account to analyze (e.g. `@elonmusk`)
 2. **X Bearer Token** — required to fetch tweets
-   - Get one at [developer.x.com](https://developer.x.com) → Create App → Keys & Tokens → Bearer Token (X API is pay-as-you-go)
+   - Get one at [developer.x.com](https://developer.x.com) → Create App → Keys & Tokens → Bearer Token
+   - X API is now **pay-as-you-go** — the user must have a balance topped up in their X developer account before making any API calls. Direct them to top up at [developer.x.com](https://developer.x.com) if they haven't already. Without a balance, all requests will fail with 402.
    - If they already have one stored in env as `X_BEARER_TOKEN`, use that
 3. **Tweet count** — how many recent tweets to analyze. First ask: **are they analyzing their own account or someone else's?** This determines the pricing tier. Then show this table:
 
@@ -248,6 +249,7 @@ If the user says "refresh {handle}-skill.md" (or similar):
 | Situation | Response |
 |-----------|----------|
 | 401 Unauthorized | "Your X Bearer Token is invalid. Generate a new one at developer.x.com → Keys & Tokens" |
+| 402 Payment Required | "Your X developer account has no balance. Top up at developer.x.com — X API is pay-as-you-go. See: docs.x.com/x-api/introduction" |
 | 403 Forbidden | "This account's tweets are protected (private). tweetskill only works on public accounts." |
 | 404 Not Found | "Account @{handle} not found. Check the handle spelling." |
 | 429 Rate Limited | "X API rate limit hit. Wait 15 minutes and try again." |
