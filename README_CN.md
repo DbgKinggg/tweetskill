@@ -10,7 +10,7 @@
 
 **把任何 X 账号的推文历史蒸馏成 AI agent 能直接用的 skill 文件。**
 
-[效果示例](#效果示例) · [安装](#安装) · [三种用法](#三种用法) · [工作原理](#工作原理) · [费用](#费用)
+[效果示例](#效果示例) · [安装](#安装) · [用法](#两种用法) · [工作原理](#工作原理) · [费用](#费用)
 
 **其他语言：** [English](README.md)
 
@@ -95,52 +95,25 @@ agent 会问你要 X Bearer Token（在 [developer.x.com](https://developer.x.co
 
 ---
 
-## 三种用法
+## 两种用法
 
-### 方式一：SKILL.md（最省事）
+### 方式一：SKILL.md（推荐）
 
-装好 skill，跟 agent 说一句话，剩下它来。
+装好 skill，跟 agent 说一句话，剩下它来。不用装任何东西，agent 自己会调 X API。
 
-适合：已经在用 Claude Code / Hermes / OpenClaw 的人。不用装任何东西，agent 自己会调 X API。
-
-```
-analyze @pmarca
-```
-
-### 方式二：Python 脚本（自己跑）
-
-```bash
-export X_BEARER_TOKEN="..."
-export OPENROUTER_API_KEY="..."
-
-python3 tweetskill.py @elonmusk --count 200
-# → 生成 elonmusk-skill.md
-```
-
-适合：想自己控制流程、批量处理、或者不想依赖 agent 的人。
-
-```bash
-# 刷新已有的 skill（只拉新推文，便宜很多）
-python3 tweetskill.py --refresh elonmusk-skill.md
-
-# 本地 JSON 重新分析（不花 X API 费用）
-python3 tweetskill.py --from-json tweets.json
-
-# 输出 ElizaOS 格式
-python3 tweetskill.py @elonmusk --format eliza
-```
-
-### 方式三：Telegram Bot（最懒人）
-
-不想装任何东西？[@TweetSkillBot](https://t.me/TweetSkillBot) 直接发消息：
+适合：已经在用 Claude Code / Hermes / OpenClaw 的人。
 
 ```
-/analyze @elonmusk
+analyze @elonmusk
 ```
 
-选分析多少条推文，确认费用，等一分钟，skill 文件发你 Telegram。
+没有 Python，没有 CLI，就这一句。
 
-免费的。Bot 是 [@DbgKinggg](https://x.com/DbgKinggg) 建的，用爱发电。
+### 方式二：tweetskill.com（不想自己搭环境）
+
+直接用网页版，连账号、分析推文、生成内容、发推，全在一个地方搞定。
+
+👉 [tweetskill.com](https://tweetskill.com)
 
 ---
 
@@ -186,7 +159,7 @@ X API 按读取对象不同分两种定价：
 | 500 条    | $0.50       | 更高            | 深度分析 |
 | 刷新已有 skill | $0.01–0.05 | 更高         | 只拉新推文 |
 
-LLM 分析另计约 $0.01（默认 Gemini Flash，通过 OpenRouter），可用 `--llm` 换模型。
+LLM 分析另计约 $0.01（因模型和 provider 不同而有差异）。
 
 > X API 定价随时可能调整，且因套餐不同而有差异，用之前建议看[官方定价页面](https://docs.x.com/x-api/getting-started/pricing)确认最新价格。
 
@@ -196,23 +169,11 @@ X Bearer Token 在 [developer.x.com](https://developer.x.com) 申请。X API 现
 
 ## 生成的文件怎么用
 
-```bash
-# Claude Code：直接 Read 进来
-# 然后说「用这个 skill 写推文」
-
-# Hermes
-cp elonmusk-skill.md ~/.hermes/skills/elonmusk/SKILL.md
-
-# OpenClaw
-# 放进 skills/ 目录就行
-
-# ElizaOS
-python3 tweetskill.py @elonmusk --format eliza
-# → 生成 character.json
-
-# 任何 agent
-# 把文件内容粘进 system prompt
-```
+- **Claude Code** — `Read` 进来，然后说「用这个 skill 写推文」
+- **Hermes** — 放进 `~/.hermes/skills/`
+- **OpenClaw** — 放进 `skills/` 目录
+- **ElizaOS** — 让 agent 输出 `--format eliza` 生成 `character.json`
+- **任何 agent** — 把文件内容粘进 system prompt
 
 ---
 

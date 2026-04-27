@@ -10,7 +10,7 @@
 
 **Distill any X account's tweet history into a skill file any AI agent can use.**
 
-[Example](#example) · [Install](#install) · [Usage](#usage) · [How it works](#how-it-works) · [Cost](#cost)
+[Example](#example) · [Install](#install) · [How it works](#how-it-works) · [Cost](#cost)
 
 **其他语言：** [中文](README_CN.md)
 
@@ -89,56 +89,7 @@ analyze @elonmusk
 
 The agent will ask for your X Bearer Token, fetch the tweets using its own HTTP tools, and write `elonmusk-skill.md`.
 
----
-
-## Usage
-
-### Option A — Skill file (easiest)
-
-Install the skill, say one sentence, let the agent handle the rest.
-
-Best for: anyone already using Claude Code, Hermes, or OpenClaw. No extra setup — the agent calls the X API directly.
-
-```
-analyze @naval
-```
-
-### Option B — Python script (run it yourself)
-
-```bash
-export X_BEARER_TOKEN="..."        # developer.x.com
-export OPENROUTER_API_KEY="..."    # or ANTHROPIC_API_KEY / OPENAI_API_KEY
-
-python3 tweetskill.py @elonmusk --count 200
-# → elonmusk-skill.md
-```
-
-Requires Python 3.10+ and two packages:
-
-```bash
-pip install tweepy openai
-```
-
-```bash
-# Output formats
-python3 tweetskill.py @elonmusk --format skill    # skill.md (default)
-python3 tweetskill.py @elonmusk --format eliza    # ElizaOS character.json
-python3 tweetskill.py @elonmusk --format json     # raw structured JSON
-
-# Refresh (only fetches new tweets — much cheaper)
-python3 tweetskill.py --refresh elonmusk-skill.md
-
-# Re-analyze from cached tweets (no X API cost)
-python3 tweetskill.py @elonmusk --save-tweets tweets.json
-python3 tweetskill.py --from-json tweets.json
-
-# Swap the LLM
-python3 tweetskill.py @elonmusk --llm anthropic/claude-haiku-4-5
-python3 tweetskill.py @elonmusk --llm openai/gpt-4o-mini
-
-# Estimate cost before running
-python3 tweetskill.py @elonmusk --count 500 --estimate-cost
-```
+No Python. No CLI. Just your agent.
 
 ---
 
@@ -178,33 +129,21 @@ X API has two read pricing tiers depending on whose tweets you're fetching:
 | 500    | $0.50       | higher          | Deep analysis |
 | Refresh (incremental) | $0.01–0.05 | higher | Only new tweets since last run |
 
-LLM distillation adds ~$0.01 (Gemini Flash default via OpenRouter) — swap to any model with `--llm`.
+LLM distillation adds ~$0.01 (varies by model and provider).
 
 > Prices change and vary by plan. Always check the [official X API pricing page](https://docs.x.com/x-api/getting-started/pricing) for current rates before estimating costs.
 
-Get your bearer token at [developer.x.com](https://developer.x.com). X API is pay per use — you'll need to top up your developer account balance before making any API calls or requests will fail. See the [X API introduction](https://docs.x.com/x-api/introduction) for details.
+Get your bearer token at [developer.x.com](https://developer.x.com). X API is pay per use — top up your developer account balance before making any API calls. See the [X API introduction](https://docs.x.com/x-api/introduction) for details.
 
 ---
 
 ## Using the output
 
-```bash
-# Claude Code — Read the file, then ask it to write
-# "write a tweet about X in @naval's voice"
-
-# Hermes
-cp naval-skill.md ~/.hermes/skills/naval/SKILL.md
-
-# OpenClaw
-# drop into your skills/ directory
-
-# ElizaOS
-python3 tweetskill.py @naval --format eliza
-# → character.json
-
-# Any agent
-# paste the file contents into system prompt context
-```
+- **Claude Code** — `Read` the file, then ask it to write in that voice
+- **Hermes** — drop into `~/.hermes/skills/`
+- **OpenClaw** — add to your `skills/` directory
+- **ElizaOS** — ask the agent to output `--format eliza` for `character.json`
+- **Any agent** — paste the file contents into system prompt context
 
 ---
 
