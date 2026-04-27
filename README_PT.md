@@ -10,7 +10,7 @@
 
 **Destile o histórico de tweets de qualquer conta X em um skill file que qualquer agente de IA pode usar.**
 
-[Exemplo](#exemplo) · [Instalação](#instalação) · [Como funciona](#como-funciona) · [Custo](#custo)
+[Exemplo](#exemplo) · [O que você pode fazer](#o-que-você-pode-fazer-com-isso) · [Instalação](#instalação) · [Como funciona](#como-funciona) · [Custo](#custo)
 
 **Outros idiomas：** [English](README.md) · [中文](README_CN.md) · [日本語](README_JA.md) · [한국어](README_KO.md) · [Español](README_ES.md) · [Deutsch](README_DE.md)
 
@@ -69,6 +69,73 @@ No preamble. No sign-off. States things as obvious facts that aren't obvious.
 ```
 
 Joga isso no Claude Code, Hermes ou OpenClaw e pede "escreve um tweet sobre o tweetskill no tom do Elon" — ele sabe exatamente o que fazer.
+
+---
+
+## O que você pode fazer com isso
+
+Com o arquivo skill, dá pra fazer muito mais do que você imagina.
+
+### Escrever tweets originais na sua própria voz
+
+O uso mais básico. Passa o arquivo skill pro agente, fala o tema, ele escreve.
+
+```
+Lê myaccount-skill.md e escreve um tweet sobre o lançamento do Claude Opus 4.7
+```
+
+```
+Escreve 3 versões no meu estilo — eu escolho uma
+```
+
+Sem precisar explicar "não uso emoji" ou "coloca a conclusão primeiro" toda vez — já tá no skill file.
+
+---
+
+### Escrever respostas que soam como você
+
+Você vê um tweet que quer responder mas não tem tempo de pensar como.
+
+```
+Lê myaccount-skill.md e responde esse tweet na minha voz: [cola o tweet]
+```
+
+O agente usa seus padrões de resposta — se você rebate, concorda ou adiciona um ponto.
+
+---
+
+### Pesquisar a estratégia de conteúdo de alguém
+
+Analisa um concorrente ou uma conta que você quer aprender.
+
+```
+analyze @naval — me diz o que os tweets de alto engajamento têm em comum
+```
+
+Depois do skill file, você vê: que aberturas eles usam, quais tópicos aparecem sempre, quais formatos nunca tocam.
+
+---
+
+### Comparar dois estilos lado a lado
+
+Mesmo tema, duas vozes diferentes.
+
+```
+Lê elonmusk-skill.md e vitalikbuterin-skill.md
+Escreve um tweet sobre regulação de IA em cada estilo
+```
+
+---
+
+### Definir uma voz persistente pro agente
+
+Adiciona no `CLAUDE.md` ou no system prompt do agente:
+
+```
+Pra todos os tweets e respostas que você me ajudar a escrever, usa por padrão o estilo de myaccount-skill.md
+```
+
+Depois é só dizer "escreve um tweet sobre isso" e tá feito.
 
 ---
 

@@ -10,7 +10,7 @@
 
 **Destilliere den Tweet-Verlauf eines beliebigen X-Accounts in eine Skill-Datei, die jeder KI-Agent verwenden kann.**
 
-[Beispiel](#beispiel) · [Installation](#installation) · [So funktioniert es](#so-funktioniert-es) · [Kosten](#kosten)
+[Beispiel](#beispiel) · [Was du damit machen kannst](#was-du-damit-machen-kannst) · [Installation](#installation) · [So funktioniert es](#so-funktioniert-es) · [Kosten](#kosten)
 
 **Andere Sprachen：** [English](README.md) · [中文](README_CN.md) · [日本語](README_JA.md) · [한국어](README_KO.md) · [Português](README_PT.md) · [Español](README_ES.md)
 
@@ -69,6 +69,73 @@ No preamble. No sign-off. States things as obvious facts that aren't obvious.
 ```
 
 Das in Claude Code, Hermes oder OpenClaw einfügen und „Schreib einen Tweet über tweetskill im Ton von Elon" sagen — der Agent weiß genau, was zu tun ist.
+
+---
+
+## Was du damit machen kannst
+
+Mit einer Skill-Datei lässt sich mehr tun, als man zunächst denkt.
+
+### Originale Tweets in deiner eigenen Stimme schreiben
+
+Der grundlegendste Anwendungsfall. Skill-Datei dem Agenten geben, Thema nennen, schreiben lassen.
+
+```
+Lies myaccount-skill.md und schreib mir einen Tweet über den Claude Opus 4.7 Launch
+```
+
+```
+Schreib 3 Versionen in meinem Stil — ich wähle eine aus
+```
+
+Kein „Ich benutze keine Emojis" oder „Fazit zuerst" mehr erklären — steht bereits in der Skill-Datei.
+
+---
+
+### Antworten schreiben, die wirklich wie du klingen
+
+Du siehst einen Tweet, auf den du antworten möchtest, hast aber keine Zeit zum Überlegen.
+
+```
+Lies myaccount-skill.md und antworte auf diesen Tweet in meiner Stimme: [Tweet einfügen]
+```
+
+Der Agent nutzt deine Antwortmuster — ob du zurückschlägst, zustimmst oder ergänzt.
+
+---
+
+### Die Content-Strategie anderer untersuchen
+
+Analysiere einen Mitbewerber oder einen Account, von dem du lernen möchtest.
+
+```
+analyze @naval — und sag mir, was deren hochperformante Tweets gemeinsam haben
+```
+
+Danach siehst du: welche Einstiegssätze sie nutzen, welche Themen immer wieder auftauchen, welche Formate sie nie verwenden.
+
+---
+
+### Zwei Stile nebeneinander vergleichen
+
+Gleiches Thema, zwei verschiedene Stimmen.
+
+```
+Lies elonmusk-skill.md und vitalikbuterin-skill.md
+Schreib einen Tweet über KI-Regulierung in jedem Stil
+```
+
+---
+
+### Eine dauerhafte Stimme für deinen Agenten setzen
+
+Füge zu `CLAUDE.md` oder dem System-Prompt deines Agenten hinzu:
+
+```
+Für alle Tweets und Antworten, bei denen du mir hilfst, verwende standardmäßig den Stil aus myaccount-skill.md
+```
+
+Danach reicht ein einfaches „schreib mir einen Tweet dazu".
 
 ---
 

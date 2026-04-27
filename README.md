@@ -10,7 +10,7 @@
 
 **Distill any X account's tweet history into a skill file any AI agent can use.**
 
-[Example](#example) · [Install](#install) · [How it works](#how-it-works) · [Cost](#cost)
+[Example](#example) · [What you can do](#what-you-can-do-with-it) · [Install](#install) · [How it works](#how-it-works) · [Cost](#cost)
 
 **Other languages：** [中文](README_CN.md) · [日本語](README_JA.md) · [한국어](README_KO.md) · [Português](README_PT.md) · [Español](README_ES.md) · [Deutsch](README_DE.md)
 
@@ -72,6 +72,75 @@ No preamble. No sign-off. States things as obvious facts that aren't obvious.
 ```
 
 Drop this into Claude Code, Hermes, or OpenClaw and ask it to "write a tweet about tweetskill in Elon's voice" — it knows exactly what to do.
+
+---
+
+## What you can do with it
+
+Once you have a skill file, there's more you can do than you might expect.
+
+### Write original tweets in your own voice
+
+The most basic use case. Give the skill file to the agent, name a topic, let it write.
+
+```
+Read myaccount-skill.md and write me a tweet about the Claude Opus 4.7 launch
+```
+
+```
+Write 3 versions in my style — I'll pick one
+```
+
+No need to explain "I don't use emoji" or "put the conclusion first" every time — it's already in the skill file.
+
+---
+
+### Write replies that actually sound like you
+
+See a tweet you want to reply to but don't have time to think about how.
+
+```
+Read myaccount-skill.md and reply to this tweet in my voice: [paste tweet]
+```
+
+The agent uses your reply patterns — whether you push back, agree, or add a counterpoint — to generate the response.
+
+---
+
+### Research someone else's content strategy
+
+Analyze a competitor or an account you want to learn from. See why they get engagement.
+
+```
+analyze @naval — then tell me what their high-engagement tweets have in common
+```
+
+After generating the skill file, you can see: what openings they use, which topics come up repeatedly, which formats they never touch.
+
+---
+
+### Compare two styles side by side
+
+Same topic, two different voices.
+
+```
+Read elonmusk-skill.md and vitalikbuterin-skill.md
+Write a tweet about AI regulation in each style
+```
+
+Good for content experiments, or finding the direction you actually want.
+
+---
+
+### Set a persistent voice for your agent
+
+Add to `CLAUDE.md` or your agent's system prompt:
+
+```
+For all tweets and replies you help me write, default to the style in myaccount-skill.md
+```
+
+Then just say "write me a tweet about this" and you're done.
 
 ---
 
