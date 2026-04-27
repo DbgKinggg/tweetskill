@@ -9,7 +9,7 @@ Usage:
   python3 tweetskill.py --from-json tweets.json
 
 Credentials (set in env):
-  X_BEARER_TOKEN       — X API v2 bearer token (get free at developer.x.com)
+  X_BEARER_TOKEN       — X API v2 bearer token (developer.x.com, pay per use)
   OPENROUTER_API_KEY   — default LLM provider
   ANTHROPIC_API_KEY    — alternative
   OPENAI_API_KEY       — alternative
@@ -47,7 +47,7 @@ def fetch_tweets(handle: str, count: int, since_id: str = None, bearer_token: st
 
     token = bearer_token or os.environ.get("X_BEARER_TOKEN")
     if not token:
-        print("ERROR: X_BEARER_TOKEN not set. Get one free at developer.x.com")
+        print("ERROR: X_BEARER_TOKEN not set. Get one at developer.x.com (pay per use — top up balance first)")
         sys.exit(1)
 
     client = tweepy.Client(bearer_token=token, wait_on_rate_limit=True)
