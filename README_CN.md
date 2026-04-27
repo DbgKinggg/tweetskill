@@ -2,7 +2,7 @@
 
 # tweetskill
 
-> *「你发了 2000 条推文，大模型还是不知道你是谁。」*
+> *「把你 X 上的赛博灵魂，装进一个文件。」*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
