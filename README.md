@@ -12,7 +12,7 @@
 
 [Example](#example) · [Install](#install) · [How it works](#how-it-works) · [Cost](#cost)
 
-**其他语言：** [中文](README_CN.md)
+**Other languages：** [中文](README_CN.md) · [日本語](README_JA.md) · [한국어](README_KO.md) · [Português](README_PT.md) · [Español](README_ES.md) · [Deutsch](README_DE.md)
 
 </div>
 

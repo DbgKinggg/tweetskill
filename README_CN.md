@@ -12,7 +12,7 @@
 
 [效果示例](#效果示例) · [安装](#安装) · [用法](#两种用法) · [工作原理](#工作原理) · [费用](#费用)
 
-**其他语言：** [English](README.md)
+**其他语言：** [English](README.md) · [日本語](README_JA.md) · [한국어](README_KO.md) · [Português](README_PT.md) · [Español](README_ES.md) · [Deutsch](README_DE.md)
 
 </div>
 
