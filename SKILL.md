@@ -167,6 +167,7 @@ period_end: "{latest tweet date, YYYY-MM-DD}"
 newest_tweet_id: "{id of most recent tweet fetched}"
 generated_at: "{current ISO timestamp}"
 generator: "tweetskill/0.1.0"
+model: "{the AI model used for this analysis, e.g. claude-sonnet-4-6, gemini-2.5-flash, gpt-4o}"
 ---
 
 # Identity
@@ -192,6 +193,8 @@ generator: "tweetskill/0.1.0"
 - {pattern from low-performing tweets}
 - {3–5 total}
 ```
+
+**For the `model` field:** use your own model identifier (e.g. `claude-sonnet-4-6`, `claude-opus-4-7`, `gemini-2.5-flash`, `gpt-4o`). If you don't know your exact model ID, use your best known identifier.
 
 **Rules for writing the sections:**
 - Signature Patterns must reference evidence ("posts that opened with X got 3× more engagement than...")
