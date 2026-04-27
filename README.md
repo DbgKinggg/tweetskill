@@ -161,19 +161,22 @@ Top 20% = signal. Bottom 20% = anti-patterns.
 
 ## Cost
 
-Estimates below use the [X API owned reads pricing](https://docs.x.com/x-api/getting-started/pricing#owned-reads) — reading tweets from an account you own or control. Pricing for reading other public accounts differs.
+X API has two read pricing tiers depending on whose tweets you're fetching:
 
-| Tweets | X API cost (owned reads) | Notes |
-|--------|--------------------------|-------|
-| 50     | $0.05                    | Fast baseline |
-| 100    | $0.10                    | Recommended default |
-| 200    | $0.20                    | Thorough |
-| 500    | $0.50                    | Deep analysis |
-| Refresh (incremental) | $0.01–0.05 | Only new tweets since last run |
+- **Owned reads** — tweets from an account [you own or control](https://docs.x.com/x-api/getting-started/pricing#owned-reads) (i.e. analyzing your own X account). Cheaper rate.
+- **Non-owned reads** — tweets from any other public account (i.e. analyzing someone else). Higher rate.
+
+| Tweets | Owned reads | Non-owned reads | Notes |
+|--------|-------------|-----------------|-------|
+| 50     | $0.05       | higher          | Fast baseline |
+| 100    | $0.10       | higher          | Recommended default |
+| 200    | $0.20       | higher          | Thorough |
+| 500    | $0.50       | higher          | Deep analysis |
+| Refresh (incremental) | $0.01–0.05 | higher | Only new tweets since last run |
 
 LLM distillation adds ~$0.01 (Gemini Flash default via OpenRouter) — swap to any model with `--llm`.
 
-> Prices change. Always check the [official X API pricing page](https://docs.x.com/x-api/getting-started/pricing) before estimating costs for your use case.
+> Prices change and vary by plan. Always check the [official X API pricing page](https://docs.x.com/x-api/getting-started/pricing) for current rates before estimating costs.
 
 Get your bearer token at [developer.x.com](https://developer.x.com) — X API is pay-as-you-go.
 

@@ -171,19 +171,22 @@ score = (点赞 + 转推×3 + 回复×2) ÷ 曝光量^0.3
 
 ## 费用
 
-以下估算基于 X API 的 [owned reads 定价](https://docs.x.com/x-api/getting-started/pricing#owned-reads)（读取你自己账号的推文）。读取其他公开账号的价格有所不同。
+X API 按读取对象不同分两种定价：
 
-| 拉多少推文 | X API 费用（owned reads） | 备注 |
-|-----------|--------------------------|------|
-| 50 条     | $0.05                    | 够用，速度快 |
-| 100 条    | $0.10                    | 推荐，结果稳 |
-| 200 条    | $0.20                    | 数据充分 |
-| 500 条    | $0.50                    | 深度分析 |
-| 刷新已有 skill | $0.01–0.05          | 只拉新推文 |
+- **Owned reads（自己账号）** — 读取[你自己控制的账号](https://docs.x.com/x-api/getting-started/pricing#owned-reads)的推文，即分析你自己的 X 账号。费率更低。
+- **Non-owned reads（他人账号）** — 读取其他任何公开账号的推文，即分析别人的账号。费率更高。
+
+| 拉多少推文 | Owned reads | Non-owned reads | 备注 |
+|-----------|-------------|-----------------|------|
+| 50 条     | $0.05       | 更高            | 够用，速度快 |
+| 100 条    | $0.10       | 更高            | 推荐，结果稳 |
+| 200 条    | $0.20       | 更高            | 数据充分 |
+| 500 条    | $0.50       | 更高            | 深度分析 |
+| 刷新已有 skill | $0.01–0.05 | 更高         | 只拉新推文 |
 
 LLM 分析另计约 $0.01（默认 Gemini Flash，通过 OpenRouter），可用 `--llm` 换模型。
 
-> X API 定价随时可能调整，用之前建议看[官方定价页面](https://docs.x.com/x-api/getting-started/pricing)确认最新价格。
+> X API 定价随时可能调整，且因套餐不同而有差异，用之前建议看[官方定价页面](https://docs.x.com/x-api/getting-started/pricing)确认最新价格。
 
 X Bearer Token 在 [developer.x.com](https://developer.x.com) 申请，X API 现已按用量计费（PAYG）。费用记在你自己的账号里，我们不经手你的 token 或付款。
 
