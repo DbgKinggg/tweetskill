@@ -74,7 +74,7 @@ tweetskill 干的就是这件事。
 ## 安装
 
 ```bash
-npx skills add dbgking/tweetskill
+npx skills add DbgKinggg/tweetskill
 ```
 
 然后在你的 AI agent 里：

@@ -74,7 +74,7 @@ Drop this into Claude Code, Hermes, or OpenClaw and ask it to "write a tweet abo
 ## Install
 
 ```bash
-npx skills add dbgking/tweetskill
+npx skills add DbgKinggg/tweetskill
 ```
 
 Then in your AI agent:
