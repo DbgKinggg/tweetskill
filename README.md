@@ -16,6 +16,8 @@
 
 </div>
 
+![tweetskill demo — writing a tweet in Elon's tone](demo.png)
+
 ---
 
 ## Why

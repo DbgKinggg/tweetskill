@@ -16,6 +16,8 @@
 
 </div>
 
+![tweetskill demo — 用 Elon 的语气写推文](demo.png)
+
 ---
 
 ## 为什么要做这个
