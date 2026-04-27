@@ -166,7 +166,7 @@ period_start: "{earliest tweet date, YYYY-MM-DD}"
 period_end: "{latest tweet date, YYYY-MM-DD}"
 newest_tweet_id: "{id of most recent tweet fetched}"
 generated_at: "{current ISO timestamp}"
-generator: "x-persona-extractor/0.1.0"
+generator: "tweetskill/0.1.0"
 ---
 
 # Identity
