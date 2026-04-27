@@ -159,8 +159,6 @@ X API 按读取对象不同分两种定价：
 | 500 条    | $0.50       | 更高            | 深度分析 |
 | 刷新已有 skill | $0.01–0.05 | 更高         | 只拉新推文 |
 
-LLM 分析另计约 $0.01（因模型和 provider 不同而有差异）。
-
 > X API 定价随时可能调整，且因套餐不同而有差异，用之前建议看[官方定价页面](https://docs.x.com/x-api/getting-started/pricing)确认最新价格。
 
 X Bearer Token 在 [developer.x.com](https://developer.x.com) 申请。X API 现已按用量计费（pay per use）——调用 API 之前需要先在 X 开发者账号里充值余额，否则所有请求会返回 402 报错。详见 [X API 介绍文档](https://docs.x.com/x-api/introduction)。费用记在你自己的账号里，我们不经手你的 token 或付款。

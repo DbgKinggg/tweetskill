@@ -269,8 +269,7 @@ Report the actual cost after completing:
 Cost this run:
   X API:  {tweet_count} tweets × {rate} = ~${cost}
           (owned reads: ~$0.001/tweet | non-owned reads: see docs.x.com/x-api/getting-started/pricing)
-  LLM:    this analysis (~$0.01 with Gemini Flash, more with larger models)
-  Total:  ~${total}
+  Total:  ~${total} (X API only)
 
 Next refresh will cost much less — only new tweets since {period_end}.
 ```

@@ -129,8 +129,6 @@ X API has two read pricing tiers depending on whose tweets you're fetching:
 | 500    | $0.50       | higher          | Deep analysis |
 | Refresh (incremental) | $0.01–0.05 | higher | Only new tweets since last run |
 
-LLM distillation adds ~$0.01 (varies by model and provider).
-
 > Prices change and vary by plan. Always check the [official X API pricing page](https://docs.x.com/x-api/getting-started/pricing) for current rates before estimating costs.
 
 Get your bearer token at [developer.x.com](https://developer.x.com). X API is pay per use — top up your developer account balance before making any API calls. See the [X API introduction](https://docs.x.com/x-api/introduction) for details.
