@@ -2,7 +2,7 @@
 
 # tweetskill
 
-> *「把你 X 上的赛博灵魂，装进一个文件。」*
+> *「把你 X 上的赛博灵魂，装进一个文件」*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
@@ -215,13 +215,13 @@ python3 tweetskill.py @elonmusk --format eliza
 
 [@DbgKinggg](https://x.com/DbgKinggg) 做的。硬核开发者，degen，喜欢把工具做出来然后开源。
 
-觉得有用的话去推特上 follow 一下，偶尔分享踩坑记录和新工具。
+觉得有用的话去 X 上 follow 一下，偶尔分享踩坑记录和新工具。
 
 ---
 
 <div align="center">
 
-推特数据是你的。<br>
+你在 X 上的数据是你的。<br>
 让 AI 真正理解它。
 
 <br>

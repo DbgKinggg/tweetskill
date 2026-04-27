@@ -2,7 +2,7 @@
 
 # tweetskill
 
-> *"You've posted 2,000 tweets. The AI still doesn't know who you are."*
+> *"Distill your X soul into a file."*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
