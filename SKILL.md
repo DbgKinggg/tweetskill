@@ -33,16 +33,29 @@ Ask the user for:
 
 1. **X handle** — the account to analyze (e.g. `@elonmusk`)
 2. **X Bearer Token** — required to fetch tweets
-   - Free to get: [developer.x.com](https://developer.x.com) → Create App → Keys & Tokens → Bearer Token
+   - Get one at [developer.x.com](https://developer.x.com) → Create App → Keys & Tokens → Bearer Token (X API is pay-as-you-go)
    - If they already have one stored in env as `X_BEARER_TOKEN`, use that
-3. **Tweet count** — how many recent tweets to analyze. Show this cost table and let them choose:
+3. **Tweet count** — how many recent tweets to analyze. First ask: **are they analyzing their own account or someone else's?** This determines the pricing tier. Then show this table:
 
-| Option | Tweets | X API cost | Notes |
-|--------|--------|-----------|-------|
-| Quick  | 50     | ~$0.05    | Fast, surface-level |
-| Standard | 100  | ~$0.10    | Recommended |
-| Thorough | 200  | ~$0.20    | Better pattern detection |
-| Deep   | 500   | ~$0.50    | Best results |
+**Owned reads** — analyzing your own X account (cheaper rate):
+
+| Option   | Tweets | X API cost | Notes |
+|----------|--------|------------|-------|
+| Quick    | 50     | ~$0.05     | Fast, surface-level |
+| Standard | 100    | ~$0.10     | Recommended |
+| Thorough | 200    | ~$0.20     | Better pattern detection |
+| Deep     | 500    | ~$0.50     | Best results |
+
+**Non-owned reads** — analyzing someone else's account (higher rate, varies by plan):
+
+| Option   | Tweets | X API cost | Notes |
+|----------|--------|------------|-------|
+| Quick    | 50     | higher     | Fast, surface-level |
+| Standard | 100    | higher     | Recommended |
+| Thorough | 200    | higher     | Better pattern detection |
+| Deep     | 500    | higher     | Best results |
+
+For exact non-owned pricing, see [docs.x.com/x-api/getting-started/pricing](https://docs.x.com/x-api/getting-started/pricing).
 
 Default to **100** if they don't specify.
 
@@ -249,8 +262,9 @@ Report the actual cost after completing:
 
 ```
 Cost this run:
-  X API:  {tweet_count} tweets × $0.001 = ${cost}
-  LLM:    this analysis (~$0.01–0.05 depending on your agent)
+  X API:  {tweet_count} tweets × {rate} = ~${cost}
+          (owned reads: ~$0.001/tweet | non-owned reads: see docs.x.com/x-api/getting-started/pricing)
+  LLM:    this analysis (~$0.01 with Gemini Flash, more with larger models)
   Total:  ~${total}
 
 Next refresh will cost much less — only new tweets since {period_end}.
