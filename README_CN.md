@@ -2,13 +2,13 @@
 
 # tweetskill
 
-> *「把你 X 上的赛博灵魂，装进一个文件」*
+> *「你发了几年推文，AI 该学着用你的语气了」*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
 [![skills.sh](https://img.shields.io/badge/skills.sh-Compatible-green)](https://skills.sh)
 
-**把任何 X 账号的推文历史蒸馏成 AI agent 能直接用的 skill 文件。**
+**从任意 X 账号的推文历史，提炼出 AI agent 能直接读懂的 skill 文件。**
 
 [效果示例](#效果示例) · [安装](#安装) · [用法](#两种用法) · [工作原理](#工作原理) · [费用](#费用)
 
@@ -22,17 +22,19 @@
 
 ## 为什么要做这个
 
-AI 帮你写推文，写出来一眼 AI 味。
+最近我一直在让 AI agent 帮我写推文内容。
 
-不是模型不行，是它根本不知道你的味道——你平时怎么说话、什么内容互动高、什么话你绝对不会发。
+每次的结果都差不多——写的很流畅，但我一看就知道不是我的风格。不是模型不够聪明，是它根本没见过我平时怎么发帖，不知道我什么话会说、什么话不会说，更不知道哪种开头在我的账号上能跑出互动。
 
-你花了三年发了 2000 条推文，这些数据全在 X 那边躺着。没人把它变成 AI 能用的东西。
+但这些信息其实都有，就在推文历史里躺着。我在 X 上发了好几年，每条都有完整的互动数据，哪些跑出来了、哪些没动静，一目了然。
 
-tweetskill 干的就是这件事。
+问题是没有任何工具把这些数据变成 AI 能直接用的格式。
 
-拿到任何账号的推文历史 → 用真实互动数据分析高互动套路 → 输出一个 skill 文件 → 扔给任何 AI agent，它就能用那个账号的语气说话。
+于是我做了 tweetskill。
 
-不是角色扮演。是把一个人的内容操作系统蒸馏出来。
+理念很简单：拿到推文历史 → 用真实互动数据分析高互动套路 → 生成一个 skill 文件 → 扔给 Claude Code、Hermes、OpenClaw 或任何 AI agent 读。之后当你说「帮我写一条推文」，它已经有你的样本了。
+
+不是角色扮演，不是风格模仿。是把你真实的内容操作系统，提炼成一个文件。
 
 ---
 
@@ -177,7 +179,7 @@ X Bearer Token 在 [developer.x.com](https://developer.x.com) 申请。X API 现
 
 ## 关于
 
-[@DbgKinggg](https://x.com/DbgKinggg) 做的。去 X 上 follow 一下：[x.com/DbgKinggg](https://x.com/DbgKinggg)
+X 上点点小关注：[x.com/DbgKinggg](https://x.com/DbgKinggg)
 
 ---
 
