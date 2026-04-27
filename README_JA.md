@@ -162,9 +162,7 @@ Bearer Tokenは[developer.x.com](https://developer.x.com)で取得。X APIは従
 
 ## 作者
 
-[@DbgKinggg](https://x.com/DbgKinggg)が作った。ハードコアなdev、degen、ツールを作って公開するのが好き。
-
-役に立ったらXでフォローを — たまにビルドログや新ツールの話を投稿する。
+[@DbgKinggg](https://x.com/DbgKinggg)が作った。Xでフォロー：[x.com/DbgKinggg](https://x.com/DbgKinggg)
 
 ---
 

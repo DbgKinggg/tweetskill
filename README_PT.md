@@ -162,9 +162,7 @@ Obtenha seu Bearer Token em [developer.x.com](https://developer.x.com). O X API 
 
 ## Sobre
 
-Feito por [@DbgKinggg](https://x.com/DbgKinggg). Dev raiz, degen, curte construir ferramentas e abrir o código.
-
-Se foi útil, segue lá no X — às vezes posta logs de build e novidades de ferramentas.
+Feito por [@DbgKinggg](https://x.com/DbgKinggg). Segue no X: [x.com/DbgKinggg](https://x.com/DbgKinggg)
 
 ---
 

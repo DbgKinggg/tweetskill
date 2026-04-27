@@ -177,9 +177,7 @@ X Bearer Token 在 [developer.x.com](https://developer.x.com) 申请。X API 现
 
 ## 关于
 
-[@DbgKinggg](https://x.com/DbgKinggg) 做的。硬核开发者，degen，喜欢把工具做出来然后开源。
-
-觉得有用的话去 X 上 follow 一下，偶尔分享踩坑记录和新工具。
+[@DbgKinggg](https://x.com/DbgKinggg) 做的。去 X 上 follow 一下：[x.com/DbgKinggg](https://x.com/DbgKinggg)
 
 ---
 

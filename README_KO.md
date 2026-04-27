@@ -162,9 +162,7 @@ Bearer Token은 [developer.x.com](https://developer.x.com)에서 발급. X API�
 
 ## 만든 사람
 
-[@DbgKinggg](https://x.com/DbgKinggg)가 만들었다. 하드코어 dev, degen, 툴 만들어서 오픈소스로 푸는 걸 좋아한다.
-
-도움이 됐으면 X에서 팔로우 — 가끔 빌드 로그랑 새 툴 얘기 올린다.
+[@DbgKinggg](https://x.com/DbgKinggg)가 만들었다. X에서 팔로우：[x.com/DbgKinggg](https://x.com/DbgKinggg)
 
 ---
 

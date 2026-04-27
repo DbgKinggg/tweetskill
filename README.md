@@ -147,9 +147,7 @@ Get your bearer token at [developer.x.com](https://developer.x.com). X API is pa
 
 ## About
 
-Built by [@DbgKinggg](https://x.com/DbgKinggg). Hardcore dev, degen, likes shipping tools and open-sourcing them.
-
-If it's useful, follow on X — occasional build logs and tool breakdowns.
+Built by [@DbgKinggg](https://x.com/DbgKinggg). Follow on X.
 
 ---
 

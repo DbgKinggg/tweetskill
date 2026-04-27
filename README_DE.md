@@ -162,9 +162,7 @@ Bearer Token erhältst du auf [developer.x.com](https://developer.x.com). Die X 
 
 ## Über das Projekt
 
-Erstellt von [@DbgKinggg](https://x.com/DbgKinggg). Hardcore-Dev, Degen, baut gerne Tools und veröffentlicht sie.
-
-Wenn es nützlich war, auf X folgen — gelegentlich werden Build-Logs und Tool-Updates gepostet.
+Erstellt von [@DbgKinggg](https://x.com/DbgKinggg). Folge auf X: [x.com/DbgKinggg](https://x.com/DbgKinggg)
 
 ---
 
