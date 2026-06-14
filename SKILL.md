@@ -32,11 +32,16 @@ When the user says something like "analyze @elonmusk" or "generate a skill for @
 Ask the user for:
 
 1. **X handle** — the account to analyze (e.g. `@elonmusk`)
-2. **X Bearer Token** — required to fetch tweets
+2. **Tweet-history source** — either a prepared tweet packet or an X Bearer Token
+   - If the user already has a JSON or Markdown export, inspect it before asking for a token.
+   - Accept source packets from tools such as [TweetClaw](https://github.com/Xquik-dev/tweetclaw) or OpenClaw when each tweet includes `id`, `text`, `created_at`, public metrics, and a source URL or capture timestamp.
+   - Reject packets that mix accounts, omit text, omit engagement metrics, or do not state that the data came from public tweets or an account the user controls.
+   - If a valid packet is provided, skip Step 2 and continue at Step 3 with the packet tweets.
+3. **X Bearer Token** — required only when you need to fetch tweets yourself
    - Get one at [developer.x.com](https://developer.x.com) → Create App → Keys & Tokens → Bearer Token
    - X API is now **pay per use** — the user must have a balance topped up in their X developer account before making any API calls. Direct them to top up at [developer.x.com](https://developer.x.com) if they haven't already. Without a balance, all requests will fail with 402.
    - If they already have one stored in env as `X_BEARER_TOKEN`, use that
-3. **Tweet count** — how many recent tweets to analyze. First ask: **are they analyzing their own account or someone else's?** This determines the pricing tier. Then show this table:
+4. **Tweet count** — how many recent tweets to analyze. First ask: **are they analyzing their own account or someone else's?** This determines the pricing tier. Then show this table:
 
 **Owned reads** — analyzing your own X account (cheaper rate):
 
@@ -65,6 +70,8 @@ Default to **100** if they don't specify.
 ## Step 2 — Fetch Tweets via X API
 
 Use whatever HTTP tool your agent has available (Bash/curl, web_fetch, etc.).
+
+If Step 1 produced a valid source packet, do not call the X API. Normalize the packet into the tweet object shape below, preserve the original `source_url` or `captured_at` values in your notes, and record `source: "imported"` in the generated frontmatter.
 
 ### 2a. Resolve user ID from handle
 
@@ -168,6 +175,7 @@ newest_tweet_id: "{id of most recent tweet fetched}"
 generated_at: "{current ISO timestamp}"
 generator: "tweetskill/0.1.0"
 model: "{the AI model used for this analysis, e.g. claude-sonnet-4-6, gemini-2.5-flash, gpt-4o}"
+source: "{x_api or imported}"
 ---
 
 # Identity
@@ -236,14 +244,15 @@ If the user says "refresh {handle}-skill.md" (or similar):
 
 1. Read the existing skill file
 2. Extract `x_handle`, `newest_tweet_id`, and `period_end` from the frontmatter
-3. Fetch only tweets newer than `newest_tweet_id` using the `since_id` parameter:
+3. If `source` is `imported`, ask for a new packet before changing the file.
+4. Fetch only tweets newer than `newest_tweet_id` using the `since_id` parameter:
    ```
    GET .../tweets?since_id={newest_tweet_id}&...
    ```
-4. If no new tweets: tell the user the skill is already up to date
-5. If new tweets found: re-run Steps 3–5 on the combined set (new + summary of old patterns)
-6. Overwrite the skill file with updated `generated_at`, `tweets_analyzed`, `period_end`, `newest_tweet_id`
-7. Report how many new tweets were fetched and the estimated cost
+5. If no new tweets: tell the user the skill is already up to date
+6. If new tweets found: re-run Steps 3–5 on the combined set (new + summary of old patterns)
+7. Overwrite the skill file with updated `generated_at`, `tweets_analyzed`, `period_end`, `newest_tweet_id`
+8. Report how many new tweets were fetched and the estimated cost
 
 ---
 
